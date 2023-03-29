@@ -14,33 +14,38 @@ const questions = [
   },
   {
     type: "input",
-    name: "Description",
+    name: "description",
     message: "Project Description?",
   },
   {
     type: "input",
-    name: "Installation",
+    name: "installation",
     message: "Installation?",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "Usage?",
   },
 
   {
     type: "input",
-    name: "Contribution",
+    name: "contribution",
     message: "Contribution Info?",
   },
   {
     type: "input",
-    name: "Email",
+    name: "email",
     message: "For questions(Email)?",
   },
   {
     type: "input",
-    name: "GitHub",
+    name: "github",
     message: "For questions(GitHub)?",
   },
   {
     type: "list",
-    name: "License",
+    name: "license",
     message: "License?",
     choices: ["MIT", "ISC", "GNUPLv3"],
     filter(val) {
@@ -59,7 +64,7 @@ function init() {
   return inquirer
     .prompt(questions)
     .then((answers) => {
-      return writeToFile("READMEEXAMPLE.md",markdownGenerator({...answers}));
+      return writeToFile("GENERATEDREADME.md",markdownGenerator({...answers}));
     })
     .catch((error) => {
       console.log(error);
